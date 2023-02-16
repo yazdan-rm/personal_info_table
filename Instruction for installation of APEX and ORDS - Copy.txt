@@ -1,0 +1,74 @@
+3,987 views  Feb 7, 2021  Oracle Apex Installation Step by Step
+In This Video I Will Show You How to Download and Install (ORDS 20,3) for Oracle (Apex 20.2) on Windows 10,11.
+=========================================================
+Oracle Apex Installation Step by Step :- https://www.youtube.com/playlist?list...
+
+Oracle Forms and Reports 12c Step by Step :- https://www.youtube.com/playlist?list...
+
+ORDS 20,3 Download Link:- https://www.oracle.com/database/techn...
+
+How to Auto Runs (ORDS) :- https://youtu.be/u37remasBx8
+
+How to Download and Install Oracle Database 19c :- https://www.youtube.com/watch?v=GnJSR...
+
+How to Download and Install Oracle Apex 20.2 :- https://youtu.be/k0FRx5Vxur8
+
+How to  Download and Install Oracle Apex 20.1 :- https://youtu.be/haYiZbkxjzk
+
+How to Uninstall Oracle Apex 20.2, or Any Version :- https://youtu.be/NBNPK1g6ZKM
+
+How to Create an Workspace in Oracle Apex :- https://youtu.be/r2RYj5PzMmk
+
+How to Create an Application in Oracle Apex :- https://youtu.be/J55_npbeg3I
+
+How to Download and Install Toad :- https://www.youtube.com/watch?v=eZuuU...
+
+How to Download and Install Java (JDK) :- https://www.youtube.com/watch?v=qbzYo...
+=========================================================
+ORDS-20.3 Installation Guide:---------
+
+Step - 1
+========
+Command for View ORDS Users:-
+==============================
+select username,account_status  from dba_users where username like 'ORDS%'
+=========================================================
+Step - 2
+========
+Notes:- (Before Submit This Path Carefully Check In This Path Same to With Your Installation    Directory Path).
+
+Provide Ords Directory path and hit "Enter" button. "cd C:\Oracle\app\ords "
+================================================
+
+Now run this command "java -jar ords.war install"
+================================================
+
+Provide Configuration path and hit "Enter" button. "C:\Oracle\app\ords\config"
+================================================
+
+Password of All Apex Normal User  (apex_123)
+================================================
+
+SERVICE_NAME = Write Your Database Name.
+
+================================================
+Enter the APEX static resources...: Provide "image" path  "C:\Oracle\app\ords\images"
+=========================================================
+Step - 3
+=======
+Login Info:-
+http://localhost:8080/ords
+http://localhost:8080/ords/apex_admin
+=========================================================
+Help US By Like, Share, Comment and Subscribe This Video for Make More Tutorials for You. Thanks !
+=========================================================
+#ords #downloadords #installords #oracleapex20.1 #oracleapex20.2
+=========================================================
+
+
+select username,account_status  from dba_users where username like 'APEX%';
+
+SELECT * FROM APEX_RELEASE;
+
+
+select username,account_status  from dba_users where username like 'ORDS%';
