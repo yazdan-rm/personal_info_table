@@ -674,3 +674,50 @@ INSERT INTO NobelPrizes (year, category, subject, winner, country) VALUES
 
 
 
+
+
+
+
+
+
+    CREATE TABLE Products (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    pro_name VARCHAR(50),
+    pro_price INT,
+    pro_com INT
+);
+
+-- Insert 30 records
+INSERT INTO Products (pro_name, pro_price, pro_com) VALUES
+('Laptop', 1200, 1),
+('Smartphone', 800, 2),
+('Tablet', 400, 3),
+('TV', 1000, 4),
+('Refrigerator', 1200, 5),
+('Washing Machine', 800, 6),
+('Coffee Maker', 100, 7),
+('Blender', 50, 8),
+('Microwave', 200, 9),
+('Vacuum Cleaner', 150, 10),
+('Headphones', 100, 11),
+('Bluetooth Speaker', 80, 12),
+('Digital Camera', 500, 13),
+('Printer', 300, 14),
+('Gaming Console', 400, 15),
+('Desk Chair', 150, 16),
+('Office Desk', 200, 17),
+('Bookshelf', 80, 18),
+('Dining Table', 300, 19),
+('Sofa', 500, 20),
+('Bed', 600, 21),
+('Mattress', 300, 22),
+('Pillow', 20, 23),
+('Dining Set', 400, 24),
+('Cookware Set', 150, 25),
+('Toaster', 40, 26),
+('Alarm Clock', 15, 27),
+('Wall Clock', 30, 28),
+('Rug', 50, 29),
+('Curtains', 40, 30);
+
+
