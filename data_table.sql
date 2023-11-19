@@ -620,3 +620,57 @@ select * from full_reviews;
 
 
 
+
+
+
+
+
+
+
+
+
+    CREATE TABLE NobelPrizes (
+    prize_id INT PRIMARY KEY AUTO_INCREMENT,
+    year YEAR,
+    category VARCHAR(50),
+    subject VARCHAR(50),
+    winner VARCHAR(50),
+    country VARCHAR(50)
+);
+
+-- Insert 30 records
+INSERT INTO NobelPrizes (year, category, subject, winner, country) VALUES
+(2000, 'Physics', 'Quantum Mechanics', 'John Doe', 'USA'),
+(2001, 'Literature', 'Poetry', 'Jane Smith', 'UK'),
+(2002, 'Chemistry', 'Organic Chemistry', 'Bob Johnson', 'Canada'),
+(2003, 'Peace', 'Human Rights', 'Alice Brown', 'Australia'),
+(2004, 'Medicine', 'Genetics', 'Charlie Davis', 'Germany'),
+(2005, 'Economics', 'Microeconomics', 'Eva White', 'France'),
+(2006, 'Physics', 'Particle Physics', 'Frank Miller', 'Japan'),
+(2007, 'Literature', 'Fiction', 'Grace Lee', 'China'),
+(2008, 'Chemistry', 'Inorganic Chemistry', 'Henry Wilson', 'Brazil'),
+(2009, 'Peace', 'Diplomacy', 'Ivy Robinson', 'South Africa'),
+(2010, 'Medicine', 'Immunology', 'Jack Turner', 'India'),
+(2011, 'Economics', 'Macroeconomics', 'Karen Perez', 'Mexico'),
+(2012, 'Physics', 'Astrophysics', 'Larry Garcia', 'Italy'),
+(2013, 'Literature', 'Drama', 'Mia Scott', 'Russia'),
+(2014, 'Chemistry', 'Physical Chemistry', 'Nick Taylor', 'Spain'),
+(2015, 'Peace', 'Social Justice', 'Olivia Moore', 'Argentina'),
+(2016, 'Medicine', 'Neuroscience', 'Paula Allen', 'South Korea'),
+(2017, 'Economics', 'Behavioral Economics', 'Quincy Hall', 'Sweden'),
+(2018, 'Physics', 'Nuclear Physics', 'Ryan Martinez', 'Netherlands'),
+(2019, 'Literature', 'Historical Fiction', 'Sara Wright', 'Switzerland'),
+(2020, 'Chemistry', 'Biochemistry', 'Tom Brown', 'Belgium'),
+(2021, 'Peace', 'Environmental Activism', 'Ursula Carter', 'Norway'),
+(2022, 'Medicine', 'Virology', 'Victor Green', 'Denmark'),
+(2023, 'Economics', 'Development Economics', 'Wendy Hill', 'Finland'),
+(2024, 'Physics', 'Condensed Matter Physics', 'Xander Adams', 'Poland'),
+(2025, 'Literature', 'Mystery', 'Yvonne Turner', 'Portugal'),
+(2026, 'Chemistry', 'Analytical Chemistry', 'Zachary Miller', 'Greece'),
+(2027, 'Peace', 'Conflict Resolution', 'Amy Clark', 'Turkey'),
+(2028, 'Medicine', 'Medical Imaging', 'Brian Foster', 'Ireland'),
+(2029, 'Economics', 'International Trade', 'Cindy Lopez', 'Hungary');
+
+
+
+
