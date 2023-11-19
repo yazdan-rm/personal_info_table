@@ -782,3 +782,54 @@ INSERT INTO emp_details (emp_fname, emp_lname, emp_dept) VALUES
 ('Amy', 'Clark', 4),
 ('Brian', 'Foster', 1),
 ('Cindy', 'Lopez', 2);
+
+
+
+
+
+create database HR;
+use HR;
+
+CREATE TABLE departments (
+    dept_id INT PRIMARY KEY AUTO_INCREMENT,
+    dept_name VARCHAR(50),
+    dept_location VARCHAR(50)
+);
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    emp_fname VARCHAR(50),
+    emp_lname VARCHAR(50),
+    emp_birthdate DATE,
+    dept_id INT,
+    management_id INT,
+    CONSTRAINT dept_id_fk FOREIGN KEY (dept_id)
+        REFERENCES departments (dept_id),
+    CONSTRAINT mgn_id_fk FOREIGN KEY (management_id)
+        REFERENCES employees (emp_id)
+);
+
+CREATE TABLE projects (
+    prj_id INT PRIMARY KEY AUTO_INCREMENT,
+    prj_name VARCHAR(50),
+    prj_budget INT,
+    dept_id INT,
+    CONSTRAINT prj_id_fk FOREIGN KEY (dept_id)
+        REFERENCES departments (dept_id)
+        ON DELETE CASCADE
+);
+
+
+CREATE TABLE assign_projects (
+    emp_id INT,
+    prj_id INT,
+    CONSTRAINT emp_fk FOREIGN KEY (emp_id)
+        REFERENCES employees (emp_id),
+    CONSTRAINT prj_id FOREIGN KEY (prj_id)
+        REFERENCES projects (prj_id)
+);
+  
+
+
+  
+
