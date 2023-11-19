@@ -721,3 +721,64 @@ INSERT INTO Products (pro_name, pro_price, pro_com) VALUES
 ('Curtains', 40, 30);
 
 
+
+
+
+
+
+
+    -- Create the Department table (assuming it exists)
+CREATE TABLE Department (
+    dept_id INT PRIMARY KEY AUTO_INCREMENT,
+    dept_name VARCHAR(50)
+);
+
+-- Insert some sample departments
+INSERT INTO Department (dept_name) VALUES
+('IT'),
+('HR'),
+('Finance'),
+('Marketing'),
+('Operations');
+
+-- Create the emp_details table with a foreign key constraint
+CREATE TABLE emp_details (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    emp_fname VARCHAR(50),
+    emp_lname VARCHAR(50),
+    emp_dept INT,
+    FOREIGN KEY (emp_dept) REFERENCES Department(dept_id)
+);
+
+-- Insert 30 records into emp_details
+INSERT INTO emp_details (emp_fname, emp_lname, emp_dept) VALUES
+('John', 'Doe', 1),
+('Jane', 'Smith', 2),
+('Bob', 'Johnson', 3),
+('Alice', 'Brown', 4),
+('Charlie', 'Davis', 1),
+('Eva', 'White', 2),
+('Frank', 'Miller', 3),
+('Grace', 'Lee', 4),
+('Henry', 'Wilson', 1),
+('Ivy', 'Robinson', 2),
+('Jack', 'Turner', 3),
+('Karen', 'Perez', 4),
+('Larry', 'Garcia', 1),
+('Mia', 'Scott', 2),
+('Nick', 'Taylor', 3),
+('Olivia', 'Moore', 4),
+('Paula', 'Allen', 1),
+('Quincy', 'Hall', 2),
+('Ryan', 'Martinez', 3),
+('Sara', 'Wright', 4),
+('Tom', 'Brown', 1),
+('Ursula', 'Carter', 2),
+('Victor', 'Green', 3),
+('Wendy', 'Hill', 4),
+('Xander', 'Adams', 1),
+('Yvonne', 'Turner', 2),
+('Zachary', 'Miller', 3),
+('Amy', 'Clark', 4),
+('Brian', 'Foster', 1),
+('Cindy', 'Lopez', 2);
