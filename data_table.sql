@@ -790,18 +790,20 @@ INSERT INTO emp_details (emp_fname, emp_lname, emp_dept) VALUES
 create database HR;
 use HR;
 
-CREATE TABLE departments (
-    dept_id INT PRIMARY KEY AUTO_INCREMENT,
-    dept_name VARCHAR(50),
+CREATE TABLE departments
+(
+    dept_id       INT PRIMARY KEY AUTO_INCREMENT,
+    dept_name     VARCHAR(50),
     dept_location VARCHAR(50)
 );
 
-CREATE TABLE employees (
-    emp_id INT PRIMARY KEY AUTO_INCREMENT,
-    emp_fname VARCHAR(50),
-    emp_lname VARCHAR(50),
+CREATE TABLE employees
+(
+    emp_id        INT PRIMARY KEY AUTO_INCREMENT,
+    emp_fname     VARCHAR(50),
+    emp_lname     VARCHAR(50),
     emp_birthdate DATE,
-    dept_id INT,
+    dept_id       INT,
     management_id INT,
     CONSTRAINT dept_id_fk FOREIGN KEY (dept_id)
         REFERENCES departments (dept_id),
@@ -809,18 +811,25 @@ CREATE TABLE employees (
         REFERENCES employees (emp_id)
 );
 
-CREATE TABLE projects (
-    prj_id INT PRIMARY KEY AUTO_INCREMENT,
-    prj_name VARCHAR(50),
+CREATE TABLE projects
+(
+    prj_id     INT PRIMARY KEY AUTO_INCREMENT,
+    prj_name   VARCHAR(50),
     prj_budget INT,
-    dept_id INT,
+    dept_id    INT,
     CONSTRAINT prj_id_fk FOREIGN KEY (dept_id)
         REFERENCES departments (dept_id)
         ON DELETE CASCADE
 );
 
+alter table projects
+       add column prj_status varchar(20) not null default 'Planned' AFTER prj_budget;
 
-CREATE TABLE assign_projects (
+
+
+
+CREATE TABLE assign_projects
+(
     emp_id INT,
     prj_id INT,
     CONSTRAINT emp_fk FOREIGN KEY (emp_id)
@@ -828,7 +837,66 @@ CREATE TABLE assign_projects (
     CONSTRAINT prj_id FOREIGN KEY (prj_id)
         REFERENCES projects (prj_id)
 );
-  
+
+
+insert into departments (dept_name, dept_location)
+values ('Marketing', 'New York'),
+       ('Java', 'London'),
+       ('Human Resources', 'Paris'),
+       ('Research and Development', 'San Francisco');
+
+
+
+select *
+from departments;
+
+insert into employees(emp_fname, emp_lname, emp_birthdate, dept_id, management_id)
+values ('Luke', 'Baker', '1974-01-25', 1, null),
+       ('Chloe', 'Johnson', '1971-06-08', 1, 1),
+       ('Jason', 'White', '1980-09-15', 1, 2),
+       ('Sophie', 'Adams', '1976-12-03', 2, 2),
+       ('Alex', 'Thomas', '1985-04-20', 2, 2),
+       ('Zoe', 'Wilson', '1979-10-15', 2, 2),
+       ('Ryan', 'Clark', '1975-12-15', 2, 2),
+       ('Lily', 'Hall', '1986-04-03', 3, 3),
+       ('Chris', 'Young', '1970-09-28', 3, 3),
+       ('Ava', 'Walker', '1979-02-14', 3, 3),
+       ('Andrew', 'Hill', '1984-07-22', 3, 3),
+       ('Mia', 'Wright', '1972-11-10', 4, 3),
+       ('Tyler', 'Green', '1973-02-22', 4, 3),
+       ('Natalie', 'Barnes', '1988-07-10', 4, 7),
+       ('Caleb', 'Martin', '1975-11-18', 4, 8),
+       ('Avery', 'Cooper', '1982-03-28', 4, 8);
+
+
+select e1.emp_fname as employee_name , e2.emp_lname as management_name from employees e1
+left outer join employees e2 on e1.management_id = e2.emp_id;
+
+
+insert into projects (prj_name, prj_budget, prj_status, dept_id)
+values ('Project A', 100000, 'In Progress', 1),
+       ('Project B', 150000, 'Completed', 2),
+       ('Project C', 120000, 'In Progress', 2),
+       ('Project D', 80000, 'Planned', 2),
+       ('Project E', 200000, 'Completed', 2),
+       ('Project F', 180000, 'In Progress', 3),
+       ('Project G', 130000, 'Planned', 3),
+       ('Project H', 90000, 'Completed', 4),
+       ('Project I', 160000, 'In Progress', 4),
+       ('Project J', 110000, 'Planned', 4);
+
+select d.dept_name, p.prj_status
+from departments d
+         join projects p on d.dept_id = p.dept_id
+where p.prj_status = 'Completed'
+group by d.dept_name;
+
+
+select e.emp_lname, e.emp_fname, count(p.prj_name)
+from employees e
+    join departments d on d.dept_id = e.dept_id
+    join projects p on d.dept_id = p.dept_id
+group by e.emp_lname, e.emp_fname;
 
 
   
